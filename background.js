@@ -9,22 +9,6 @@ let currnetTabId = null
 // 记录每个tab对应的状态 { [tabid]:isVertical }
 const stateCache = {}
 
-// 监听 tab onReplaced onUpdated 时重置状态
-const onTabsEvents = [
-  'onReplaced',
-  'onUpdated',
-]
-
-onTabsEvents.forEach(eventName=>{
-  chrome.tabs[eventName].addListener((id,{ status })=>{
-    if(eventName === 'onUpdated'){
-      if(status === "loading") resetState()
-      return;
-    }
-    resetState()
-  })
-})
-
 // 监听 tab 切换时
 chrome.tabs['onSelectionChanged'].addListener((id,{ status })=>{
   console.log('onSelectionChanged',stateCache , id)
