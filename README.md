@@ -2,7 +2,7 @@
 
 <h1 align="center"> Bilbil-verticalscreen-video </h1>
 <div align="center">
-  <img src="/img/banner.png" width="560" />
+  <img src="/img/banner_.png" width="560" />
 </div>
 <div align="center">
   <strong>一款Chrome插件 可以帮你旋转bilbil视频变成竖屏.</strong>
@@ -37,4 +37,4 @@
 
 目前正在审核中...
 
-![WeChat156e2ef1d234ea65ac4d0c58a893f837.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1bff9bcb60d438192b7e74b47fafae3~tplv-k3u1fbpfcp-watermark.image)
+![WeChat156e2ef1d234ea65ac4d0c58a893f837.png](/img/tip.png)
