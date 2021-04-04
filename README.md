@@ -14,32 +14,32 @@
 
 ##  如何添加到Chrome
 
-- 先把项目拉到本地
+1、 先把项目拉到本地
 `git clone git@github.com:Feng373712195/bilbil-verticalscreen-video.git`
 
 <div align="left">
   <img src="/img/tech-01.png" width="560" />
 </div>
 
-- Chomre打开`chrome://extensions/`
+2、 Chomre打开`chrome://extensions/`
 
 <div align="left">
   <img src="/img/tech-02.png" width="560" />
 </div>
 
-- 打开开发者模式
+3、 打开开发者模式
 
 <div align="left">
   <img src="/img/tech-03.png" width="560" />
 </div>
 
-- 选择加载已解压的扩展程序，选择插件文件夹
+4、 选择加载已解压的扩展程序，选择插件文件夹
 
 <div align="left">
   <img src="/img/tech-04.png" width="560" />
 </div>
 
-- 添加成功，记得开启
+5、 添加成功，记得开启
 
 <div align="left">
   <img src="/img/tech-05.png" width="560" />
@@ -48,34 +48,34 @@
 
 ##  如何使用
 
-- 把插件固定到导航栏
+1、 把插件固定到导航栏
 
 <div align="left">
   <img src="/img/use-01.png" width="560" />
 </div>
 
-- 如何不是插件会自动检查当前是否bilbil视频页 （如果没有检查出来，请刷新一下网页）
+2、 如何不是插件会自动检查当前是否bilbil视频页 （如果没有检查出来，请刷新一下网页）
 
 <div align="left">
-  <img src="/img/use-02_.png" width="300" />
+  <img src="/img/use-02_.png" width="560" />
 </div>
 
-- 在bilbil视频页 勾选切换为竖屏效果
+3、 在bilbil视频页 打开插件弹窗
 
 <div align="left">
-  <img src="/img/use-03_.png" width="300" />
+  <img src="/img/use-03_.png" width="560" />
 </div>
 
-</br>
+4、 勾选切换为竖屏效果
 
 <div align="left">
-  <img src="/img/use-04_.png" width="300" />
+  <img src="/img/use-04_.png" width="560" />
 </div>
 
-- 尽情享用吧
+5、 尽情享用吧
 
-<div align="center">
-  <img src="/img/use-05.jpeg" width="300" />
+<div align="left">
+  <img src="/img/use-05.jpeg" width="560" />
 </div>
 
 
