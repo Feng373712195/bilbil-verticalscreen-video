@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bilbil-verticalscreen-video</title>
+    <style>
+      .popup{
+        padding: 4px 8px;
+        width: max-content;
+        width: 150px;
+      }
+      .tip{
+        position: relative;
+        margin-bottom: 16px;
+        padding-left: 16px;
+      }
+      .tip::after{
+        position: absolute;
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+      }
+      .tip.active::after{
+        background: chartreuse;
+      }
+      .tip.disabled::after{
+        background: #666;
+      }
+      .switch{
+        display: flex;
+        align-items: center;
+      }
+    </style>
+</head>
+<body>
+    <!-- 插件弹窗样式 -->
+    <div class="popup" >
+      <div id="tip" class="tip" >当前为BilBil视频页面</div>
+      <div class="switch" >
+        <label>切换为竖屏</label>
+        <input  id="switch" type="checkbox" />
+      </div>
+    </div>
+    <script type="text/javascript" src="popup.js"></script>
+</body>
+</html>
