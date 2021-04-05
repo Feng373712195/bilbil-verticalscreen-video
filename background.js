@@ -16,7 +16,6 @@ const onTabsEvents = [
 
 onTabsEvents.forEach(eventName=>{
   chrome.tabs[eventName].addListener((id,{ status })=>{
-    console.log(eventName , status)
     if(eventName === 'onUpdated'){
       if(status === 'loading') resetState()
       return
@@ -51,8 +50,6 @@ chrome.runtime.onMessage.addListener(
       stateCache[sender.tab.id] = isVerticalscreen
       inbilbil = true
       currnetTabId = sender.tab.id
-
-      console.log(request.type , stateCache[sender.tab.id] , inbilbil , currnetTabId)
       sendResponse({ok: true});
     }
     // 监听是否切换了竖屏横竖状态

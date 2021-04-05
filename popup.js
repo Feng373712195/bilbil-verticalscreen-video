@@ -21,7 +21,6 @@ checkbox.addEventListener('change',async ()=>{
 async function init(){
   let inBilBil = bg.checkInBilBil();
   let isVertical = await bg.checkIsVerticalscreen();
-  console.log('init',inBilBil,isVertical)
   updateState(inBilBil,isVertical)
 }
 
