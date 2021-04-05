@@ -19,6 +19,10 @@ chrome.runtime.onMessage.addListener(
       const isVertical = checkVideIsVertical()
       sendResponse({'checked_verticalvideo': isVertical });
     }
+    // 检查是否在bilbil页
+    if(request.type === 'check_inbilbil'){
+      sendResponse({'checked': true });
+    }
   }
 );
 

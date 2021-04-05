@@ -9,19 +9,16 @@ let currnetTabId = null
 // 记录每个tab对应的状态 { [tabid]:isVertical }
 const stateCache = {}
 
-const onTabsEvents = [
-  'onUpdated',
-  'onReplaced'
-]
-
-onTabsEvents.forEach(eventName=>{
-  chrome.tabs[eventName].addListener((id,{ status })=>{
-    if(eventName === 'onUpdated'){
-      if(status === 'loading') resetState()
-      return
-    }
-    resetState()
-  })
+// tab触发onUpdated 判断当前是否在bilbil网址
+chrome.tabs['onUpdated'].addListener(async (id,{ status })=>{
+  if(status === 'complete'){
+    const checked = await new Promise((resolve)=>{
+      chrome.tabs.sendMessage(id,{ type:'check_inbilbil' },(res)=>{
+        resolve(res ? true : false)
+      })
+    })
+    checked ? setState(id) : resetState()
+  }
 })
 
 // 监听 tab 切换时
