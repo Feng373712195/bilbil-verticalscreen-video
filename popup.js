@@ -25,7 +25,6 @@ async function init(){
 
 // 更新显示状态函数
 function updateState(state,isVertical){
-  console.log('updateState',  state,isVertical)
   checkbox.disabled = state ? false : true;
   checkbox.checked = isVertical;
   tip.className = `tip ${state ? 'active' : 'disabled' }`;

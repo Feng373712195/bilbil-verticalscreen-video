@@ -11,7 +11,6 @@ const stateCache = {}
 
 // 监听 tab 切换时
 chrome.tabs['onSelectionChanged'].addListener((id,{ status })=>{
-  console.log('onSelectionChanged',stateCache , id)
   if(id in stateCache){
     setState(id)
   }else{
@@ -55,7 +54,6 @@ function checkInBilBil(){
 // 检查获取 IsVerticalscreen 状态
 function checkIsVerticalscreen(id){
   const tabId = getCurrentTabId()
-  console.log(tabId , 'tabId')
   return new Promise((resolve)=>{
     chrome.tabs.sendMessage(tabId,{
       type:'check_verticalvideo',

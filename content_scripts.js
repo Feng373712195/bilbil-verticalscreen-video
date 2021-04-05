@@ -10,7 +10,6 @@ chrome.runtime.onMessage.addListener(
     // 监听 popup.js 发送过来的切换横竖屏事件
     if (request.type === 'change_verticalvideo') {
       const isVertical = request.verticalvideo
-      console.log( isVertical , 'isVertical' )
       changeVerticalVideo(isVertical)
       sendResponse({'changed_verticalvideo': isVertical});
       chrome.runtime.sendMessage({ type:'changed_verticalvideo',verticalvideo:isVertical })
@@ -36,8 +35,6 @@ function changeVerticalVideo(isVertical){
 
 function checkVideIsVertical(){
   const video = document.querySelector('.bilibili-player-video video');
-
-  console.log( video.style.transform ,  video.style)
   return !!video.style.transform
 }
 
