@@ -5,26 +5,27 @@ var bg = chrome.extension.getBackgroundPage();
 const tip = document.getElementById('tip');
 // 切换横竖屏checkbox
 const checkbox = document.getElementById('switch')
-
+// 弹窗初始化
 init()
 
 // 监听checkbox切换横竖屏
-checkbox.addEventListener('change',()=>{
+checkbox.addEventListener('change',async ()=>{
   chrome.tabs.sendMessage(bg.getCurrentTabId(),{
     type:'change_verticalvideo',
-    verticalvideo:!bg.checkIsVerticalscreen()
+    verticalvideo:!(await bg.checkIsVerticalscreen())
   })
 })
 
 // 初始化检查是否在bilbil视频页与是否已经切换为竖屏
-function init(){
+async function init(){
   let inBilBil = bg.checkInBilBil();
-  let isVertical = bg.checkIsVerticalscreen();
+  let isVertical = await bg.checkIsVerticalscreen();
   updateState(inBilBil,isVertical)
 }
 
 // 更新显示状态函数
 function updateState(state,isVertical){
+  console.log('updateState',  state,isVertical)
   checkbox.disabled = state ? false : true;
   checkbox.checked = isVertical;
   tip.className = `tip ${state ? 'active' : 'disabled' }`;

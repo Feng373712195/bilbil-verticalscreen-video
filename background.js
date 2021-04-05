@@ -53,8 +53,19 @@ function checkInBilBil(){
 }
 
 // 检查获取 IsVerticalscreen 状态
-function checkIsVerticalscreen(){
-  return isVerticalscreen
+function checkIsVerticalscreen(id){
+  const tabId = getCurrentTabId()
+  console.log(tabId , 'tabId')
+  return new Promise((resolve)=>{
+    chrome.tabs.sendMessage(tabId,{
+      type:'check_verticalvideo',
+    },{},(response)=>{
+      // 同步状态
+      isVerticalscreen = response['checked_verticalvideo']
+      stateCache[id] = isVerticalscreen
+      resolve(isVerticalscreen)
+    })
+  })
 }
 
 // 设置当前tabId 用于 popup.js 切换横竖屏时 给对应tab发送消息
