@@ -9,6 +9,22 @@ let currnetTabId = null
 // 记录每个tab对应的状态 { [tabid]:isVertical }
 const stateCache = {}
 
+const onTabsEvents = [
+  'onUpdated',
+  'onReplaced'
+]
+
+onTabsEvents.forEach(eventName=>{
+  chrome.tabs[eventName].addListener((id,{ status })=>{
+    console.log(eventName , status)
+    if(eventName === 'onUpdated'){
+      if(status === 'loading') resetState()
+      return
+    }
+    resetState()
+  })
+})
+
 // 监听 tab 切换时
 chrome.tabs['onSelectionChanged'].addListener((id,{ status })=>{
   if(id in stateCache){
@@ -16,7 +32,7 @@ chrome.tabs['onSelectionChanged'].addListener((id,{ status })=>{
   }else{
     resetState()
   }
-}),
+})
 
 // 监听 tab 被删除时
 chrome.tabs['onRemoved'].addListener((id,{ status })=>{
@@ -29,12 +45,14 @@ chrome.tabs['onRemoved'].addListener((id,{ status })=>{
 // 监听 content_script 发送过来的消息
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    console.log(request,sender.tab,sender.tab ? "来自内容脚本：" + sender.tab.url : "来自扩展程序");
+    console.log(sender.tab ? "来自内容脚本：" + sender.tab.url : "来自扩展程序");
     // 监听是否进入了bilbil视频详情页
     if (request.type === 'inbilbil') {
       stateCache[sender.tab.id] = isVerticalscreen
       inbilbil = true
       currnetTabId = sender.tab.id
+
+      console.log(request.type , stateCache[sender.tab.id] , inbilbil , currnetTabId)
       sendResponse({ok: true});
     }
     // 监听是否切换了竖屏横竖状态
@@ -55,14 +73,18 @@ function checkInBilBil(){
 function checkIsVerticalscreen(id){
   const tabId = getCurrentTabId()
   return new Promise((resolve)=>{
-    chrome.tabs.sendMessage(tabId,{
-      type:'check_verticalvideo',
-    },{},(response)=>{
-      // 同步状态
-      isVerticalscreen = response['checked_verticalvideo']
-      stateCache[id] = isVerticalscreen
+    if(stateCache[tabId]){
+      chrome.tabs.sendMessage(tabId,{
+        type:'check_verticalvideo',
+      },{},(response)=>{
+        // 同步状态
+        isVerticalscreen = response['checked_verticalvideo']
+        stateCache[id] = isVerticalscreen
+        resolve(isVerticalscreen)
+      })
+    }else{
       resolve(isVerticalscreen)
-    })
+    }
   })
 }
 

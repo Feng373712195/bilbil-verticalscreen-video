@@ -4,7 +4,8 @@ var bg = chrome.extension.getBackgroundPage();
 // 提示
 const tip = document.getElementById('tip');
 // 切换横竖屏checkbox
-const checkbox = document.getElementById('switch')
+const checkbox = document.getElementById('switch');
+
 // 弹窗初始化
 init()
 
@@ -20,6 +21,7 @@ checkbox.addEventListener('change',async ()=>{
 async function init(){
   let inBilBil = bg.checkInBilBil();
   let isVertical = await bg.checkIsVerticalscreen();
+  console.log('init',inBilBil,isVertical)
   updateState(inBilBil,isVertical)
 }
 
