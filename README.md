@@ -103,6 +103,4 @@
 
 ##  谷歌商店地址
 
-目前正在审核中...
-
 [插件谷歌商店地址](https://chrome.google.com/webstore/detail/bilbil-verticalscreen-vid/llonejejkimbmpgllalpolfeomgfciln?hl=zh-CN&authuser=0)
