@@ -105,4 +105,4 @@
 
 目前正在审核中...
 
-![WeChat156e2ef1d234ea65ac4d0c58a893f837.png](/img/tip.png)
+[插件谷歌商店地址](https://chrome.google.com/webstore/detail/bilbil-verticalscreen-vid/llonejejkimbmpgllalpolfeomgfciln?hl=zh-CN&authuser=0)
